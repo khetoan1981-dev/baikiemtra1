@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiểm tra Toán 7 – Các trường hợp bằng nhau của tam giác vuông</title>
+<style>
+:root{--blue:#1d4ed8;--navy:#17345f;--pale:#eff6ff;--line:#dbe4f0;--ink:#1f2937;--green:#15803d;--red:#b91c1c}
+*{box-sizing:border-box}
+body{margin:0;background:#f3f6fb;color:var(--ink);font:16px/1.55 Arial,Helvetica,sans-serif}
+.wrap{max-width:920px;margin:28px auto;padding:0 16px 40px}
+.paper{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 28px #17345f12;overflow:hidden}
+header{background:linear-gradient(120deg,#17345f,#2563eb);color:#fff;padding:26px 30px}
+header h1{font-size:25px;margin:0 0 8px;text-align:center}
+header p{margin:4px 0;text-align:center}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.meta label{font-size:14px}
+.meta input{width:100%;margin-top:5px;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:15px}
+main{padding:26px 30px}
+.note{background:var(--pale);border-left:4px solid var(--blue);padding:12px 15px;border-radius:8px;margin-bottom:22px}
+.section-title{font-size:19px;color:var(--navy);border-bottom:2px solid #dbeafe;padding-bottom:8px;margin:26px 0 14px}
+.question{padding:15px 16px;border:1px solid var(--line);border-radius:10px;margin:12px 0;background:#fff}
+.qtitle{font-weight:700;margin-bottom:9px}
+.options{display:grid;gap:7px}
+.option{display:flex;gap:9px;align-items:flex-start;padding:5px 7px;border-radius:7px;cursor:pointer}
+.option:hover{background:#f5f8ff}
+input[type=radio]{margin-top:5px;accent-color:var(--blue)}
+.tfrow{display:flex;gap:18px;flex-wrap:wrap}
+.tfrow label{display:flex;gap:7px;align-items:center;cursor:pointer}
+input[type=text]{padding:9px 10px;border:1px solid #cbd5e1;border-radius:7px;width:min(100%,340px);font-size:15px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+button{border:0;border-radius:9px;padding:12px 20px;font-size:16px;font-weight:700;cursor:pointer}
+.primary{background:var(--blue);color:white}.secondary{background:#e8eef7;color:#17345f}
+button:hover{filter:brightness(.96)}
+#result{display:none;margin-top:22px;padding:18px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0}
+#result h3{margin:0 0 8px;color:var(--green)}
+.feedback{margin-top:12px;padding-top:10px;border-top:1px solid #d1fae5}
+.correct{color:var(--green);font-weight:700}.wrong{color:var(--red);font-weight:700}
+footer{text-align:center;color:#64748b;font-size:13px;padding:0 20px 22px}
+@media(max-width:600px){header{padding:22px 16px}header h1{font-size:21px}main{padding:18px 14px}.meta{grid-template-columns:1fr}}
+@media print{body{background:white}.wrap{margin:0;max-width:none}.paper{box-shadow:none;border:0}header{background:#fff;color:#000;border-bottom:2px solid #333}.actions,#result{display:none!important}.question{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="paper">
+<header>
+<h1>ĐỀ KIỂM TRA TOÁN 7</h1>
+<p><strong>BÀI: CÁC TRƯỜNG HỢP BẰNG NHAU CỦA TAM GIÁC VUÔNG</strong></p>
+<p>Thời gian làm bài: 30 phút</p>
+<div class="meta">
+<label>Họ và tên học sinh<input id="student" type="text" placeholder="Nhập họ và tên"></label>
+<label>Lớp<input id="className" type="text" placeholder="Ví dụ: 7A"></label>
+</div>
+</header>
+<main>
+<div class="note"><strong>Hướng dẫn:</strong> Chọn một đáp án đúng ở phần I; chọn Đúng hoặc Sai ở phần II; điền câu trả lời ngắn ở phần III. Mỗi câu trắc nghiệm và đúng/sai được 0,5 điểm; mỗi câu trả lời ngắn được 2 điểm. Tổng điểm: 10.</div>
+
+<h2 class="section-title">I. TRẮC NGHIỆM NHIỀU LỰA CHỌN (10 câu – 5 điểm)</h2>
+<div id="mcq"></div>
+
+<h2 class="section-title">II. CÂU HỎI ĐÚNG – SAI (4 câu – 2 điểm)</h2>
+<div id="tf"></div>
+
+<h2 class="section-title">III. TRẢ LỜI NGẮN (2 câu – 3 điểm)</h2>
+<div class="question">
+<div class="qtitle">Câu 15. Cho hai tam giác vuông ABC và DEF lần lượt vuông tại A và D. Biết AB = DE, AC = DF. Hai tam giác ABC và DEF có bằng nhau không? Hãy nêu trường hợp bằng nhau được sử dụng.</div>
+<input type="text" id="short15" placeholder="Nhập câu trả lời">
+</div>
+<div class="question">
+<div class="qtitle">Câu 16. Cho tam giác vuông MNP vuông tại M và tam giác vuông XYZ vuông tại X. Biết NP = YZ, MN = XY. Hai tam giác có bằng nhau không? Nêu trường hợp bằng nhau thích hợp.</div>
+<input type="text" id="short16" placeholder="Nhập câu trả lời">
+</div>
+
+<div class="actions">
+<button class="primary" onclick="gradeQuiz()">NỘP BÀI – XEM KẾT QUẢ</button>
+<button class="secondary" onclick="resetQuiz()">Làm lại</button>
+<button class="secondary" onclick="window.print()">In đề kiểm tra</button>
+</div>
+<div id="result" aria-live="polite"></div>
+</main>
+<footer>Chúc các em làm bài tốt!</footer>
+</div>
+</div>
+<script>
+const mcQuestions = [
+["Trong một tam giác vuông, cạnh đối diện với góc vuông được gọi là gì?",["Cạnh góc vuông","Cạnh huyền","Đường cao","Đường trung tuyến"],1],
+["Hai tam giác vuông bằng nhau theo trường hợp cạnh huyền – cạnh góc vuông khi có:",["Hai cạnh góc vuông tương ứng bằng nhau","Một góc nhọn tương ứng bằng nhau","Cạnh huyền và một cạnh góc vuông tương ứng bằng nhau","Hai góc nhọn tương ứng bằng nhau"],2],
+["Nếu hai cạnh góc vuông của tam giác vuông này lần lượt bằng hai cạnh góc vuông của tam giác vuông kia thì hai tam giác:",["Bằng nhau theo trường hợp cạnh – góc – cạnh","Bằng nhau theo trường hợp cạnh huyền – cạnh góc vuông","Không thể kết luận","Chỉ đồng dạng"],0],
+["Hai tam giác vuông có cạnh huyền tương ứng bằng nhau và một góc nhọn tương ứng bằng nhau thì:",["Chưa đủ điều kiện kết luận","Bằng nhau","Chỉ có diện tích bằng nhau","Luôn vuông cân"],1],
+["Cho tam giác ABC vuông tại A và tam giác DEF vuông tại D. Nếu AB = DE, AC = DF thì hai tam giác bằng nhau theo trường hợp nào?",["Cạnh huyền – cạnh góc vuông","Hai cạnh góc vuông","Cạnh – góc – cạnh bất kỳ","Không có trường hợp nào"],1],
+["Trong hai tam giác vuông, yếu tố nào sau đây chắc chắn là góc bằng nhau?",["Hai góc nhọn bất kỳ","Góc vuông","Góc đối diện cạnh huyền","Góc ngoài"],1],
+["Cho hai tam giác vuông có cạnh huyền bằng nhau và một cạnh góc vuông bằng nhau. Có thể kết luận:",["Hai tam giác bằng nhau","Hai tam giác đồng dạng nhưng không bằng nhau","Hai tam giác có chu vi bằng nhau","Không thể kết luận"],0],
+["Nếu ΔABC = ΔDEF theo thứ tự tương ứng thì đỉnh A tương ứng với đỉnh nào?",["D","E","F","Không xác định"],0],
+["Hai tam giác vuông có hai cạnh góc vuông lần lượt là 3 cm và 4 cm. Cạnh huyền của mỗi tam giác bằng:",["5 cm","6 cm","7 cm","12 cm"],0],
+["Phát biểu nào sau đây đúng?",["Mọi tam giác có một cạnh bằng nhau đều bằng nhau","Hai tam giác vuông có cạnh huyền bằng nhau thì luôn bằng nhau","Hai tam giác vuông có cạnh huyền và một cạnh góc vuông tương ứng bằng nhau thì bằng nhau","Hai tam giác vuông chỉ bằng nhau khi có ba cạnh bằng nhau"],2]
+];
+const tfQuestions = [
+["Hai tam giác vuông có hai cạnh góc vuông tương ứng bằng nhau thì bằng nhau.",true],
+["Cạnh huyền là cạnh dài nhất trong một tam giác vuông.",true],
+["Hai tam giác vuông có một cạnh góc vuông tương ứng bằng nhau thì chắc chắn bằng nhau.",false],
+["Hai tam giác vuông có cạnh huyền và một cạnh góc vuông tương ứng bằng nhau thì bằng nhau.",true]
+];
+const mcqEl=document.getElementById("mcq");
+mcQuestions.forEach((q,i)=>{
+ const box=document.createElement("div");box.className="question";
+ box.innerHTML=`<div class="qtitle">Câu ${i+1}. ${q[0]}</div><div class="options">${q[1].map((o,j)=>`<label class="option"><input type="radio" name="mc${i}" value="${j}"><span>${"ABCD"[j]}. ${o}</span></label>`).join("")}</div>`;
+ mcqEl.appendChild(box);
+});
+const tfEl=document.getElementById("tf");
+tfQuestions.forEach((q,i)=>{
+ const box=document.createElement("div");box.className="question";
+ box.innerHTML=`<div class="qtitle">Câu ${i+11}. ${q[0]}</div><div class="tfrow"><label><input type="radio" name="tf${i}" value="true"> Đúng</label><label><input type="radio" name="tf${i}" value="false"> Sai</label></div>`;
+ tfEl.appendChild(box);
+});
+function normalize(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").replace(/\s+/g," ").trim();}
+function gradeQuiz(){
+ let score=0, details=[];
+ mcQuestions.forEach((q,i)=>{
+  const chosen=document.querySelector(`input[name="mc${i}"]:checked`);
+  const ok=chosen && Number(chosen.value)===q[2];if(ok)score+=0.5;
+  details.push(`<div class="${ok?'correct':'wrong'}">Câu ${i+1}: ${ok?'Đúng':'Chưa đúng'} – Đáp án ${"ABCD"[q[2]]}.</div>`);
+ });
+ tfQuestions.forEach((q,i)=>{
+  const chosen=document.querySelector(`input[name="tf${i}"]:checked`);
+  const ok=chosen && (chosen.value==="true")===q[1];if(ok)score+=0.5;
+  details.push(`<div class="${ok?'correct':'wrong'}">Câu ${i+11}: ${ok?'Đúng':'Chưa đúng'} – Đáp án: ${q[1]?'Đúng':'Sai'}.</div>`);
+ });
+ const a15=normalize(document.getElementById("short15").value);
+ const a16=normalize(document.getElementById("short16").value);
+ const ok15=(a15.includes("bang nhau")||a15.includes("bang")) && (a15.includes("hai canh goc vuong")||a15.includes("canh goc vuong")||a15.includes("cgv"));
+ const ok16=(a16.includes("bang nhau")||a16.includes("bang")) && (a16.includes("canh huyen") && (a16.includes("canh goc vuong")||a16.includes("cgv")));
+ if(ok15)score+=1.5;if(ok16)score+=1.5;
+ details.push(`<div class="${ok15?'correct':'wrong'}">Câu 15: ${ok15?'Đạt yêu cầu':'Cần bổ sung'}. Gợi ý: Hai tam giác bằng nhau theo trường hợp hai cạnh góc vuông.</div>`);
+ details.push(`<div class="${ok16?'correct':'wrong'}">Câu 16: ${ok16?'Đạt yêu cầu':'Cần bổ sung'}. Gợi ý: Hai tam giác bằng nhau theo trường hợp cạnh huyền – cạnh góc vuông.</div>`);
+ score=Math.round(score*10)/10;
+ const name=document.getElementById("student").value.trim()||"Học sinh";
+ const result=document.getElementById("result");result.style.display="block";
+ result.innerHTML=`<h3>Kết quả bài làm</h3><p><strong>${name}</strong> – Điểm: <strong>${score.toFixed(1)}/10</strong></p><div class="feedback"><strong>Đáp án và nhận xét:</strong>${details.join("")}</div>`;
+ result.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function resetQuiz(){
+ document.querySelectorAll('input[type="radio"]').forEach(x=>x.checked=false);
+ document.querySelectorAll('input[type="text"]').forEach(x=>x.value="");
+ const r=document.getElementById("result");r.style.display="none";r.innerHTML="";
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+</body>
+</html>
